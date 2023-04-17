@@ -8,12 +8,17 @@ class LoginController {
 
     private LoginModel $loginModel;
 
-	public function __construct() {
+    public function __construct() {
         $this->loginModel = new LoginModel();
-	}
+    }
 
     public function auth() {
-        return $this->loginModel->authDB();
+     $responseAuth = $this->loginModel->authDB();
+     if ($responseAuth->cont === 0) {
+        return  response->error("su cuenta no se encuentra registrada");
     }
+
+    return response->success("si te encuentras",$responseAuth);
+}
 
 }

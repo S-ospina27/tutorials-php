@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Class\Tutorials\Courses;
 use LionSQL\Drivers\MySQL as DB;
 
 class CoursesModel {
@@ -10,20 +11,30 @@ class CoursesModel {
 		
 	}
 
-	public function createDB() {
-
+	public function createDB(Courses $courses) {
+		return DB::call("create_courses",[
+			$courses->getCoursesName(),
+			$courses->getCoursesLevel(),
+			$courses->getCoursesDescription(),
+			$courses->getCoursesRegistrationDate(),
+			$courses->getIdusers()
+		])->execute();
 	}
 
 	public function readDB() {
 
 	}
 
-	public function updateDB() {
+	public function updateDB(Courses $courses) {
+		return DB::call("update_courses",[
+			$courses->getCoursesName(),
+			$courses->getCoursesLevel(),
+			$courses->getCoursesDescription(),
+			$courses->getCoursesRegistrationDate(),
+			$courses->getIdcourses()
+		])->execute();
 
 	}
 
-	public function deleteDB() {
-
-	}
 
 }

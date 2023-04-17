@@ -8,6 +8,7 @@ class Users implements \JsonSerializable {
 	private ?string $users_name = null;
 	private ?string $users_email = null;
 	private ?int $idroles = null;
+	private ?string $users_password = null;
 
 	public function __construct() {
 
@@ -34,6 +35,10 @@ class Users implements \JsonSerializable {
 
 		$users->setIdroles(
 			isset(request->idroles) ? request->idroles : null
+		);
+
+		$users->setUsersPassword(
+			isset(request->users_password) ? request->users_password : null
 		);
 
 		return $users;
@@ -72,6 +77,15 @@ class Users implements \JsonSerializable {
 
 	public function setIdroles(?int $idroles): Users {
 		$this->idroles = $idroles;
+		return $this;
+	}
+
+	public function getUsersPassword(): ?string {
+		return $this->users_password;
+	}
+
+	public function setUsersPassword(?string $users_password): Users {
+		$this->users_password = $users_password;
 		return $this;
 	}
 

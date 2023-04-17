@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\UsersController;
@@ -16,6 +17,9 @@ use LionRoute\Route;
 Route::get('/', fn() => info("Welcome to index"));
 
 Route::prefix("api",function() {
+
+ Route::post("auth",[LoginController::class,"auth"]);
+
     Route::prefix("users",function() {
         Route::post("create",[UsersController::class,"create"]);
         Route::put("update",[UsersController::class,"update"]);

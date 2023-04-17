@@ -12,8 +12,13 @@ class LoginModel {
 
     public function authDB() {
         return DB::table('users')
-            ->select(DB::as(DB::count('*'), "cont"))
+            ->select(
+                DB::as(DB::count('*'), "cont"),
+                DB::column('idusers'),
+                DB::column('idroles')
+            )
             ->where(DB::equalTo("users_email"), request->users_email)
+            ->and(DB::equalTo("users_password"),request->users_password)
             ->get();
     }
 
