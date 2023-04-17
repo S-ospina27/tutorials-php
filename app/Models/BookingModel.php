@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Class\Tutorials\Booking;
 use LionSQL\Drivers\MySQL as DB;
 
 class BookingModel {
@@ -10,20 +11,29 @@ class BookingModel {
 		
 	}
 
-	public function createDB() {
-
+	public function createDB(Booking $Booking) {
+		return DB::call("create_booking",[
+			$Booking->getIdcourses(),
+			$Booking->getBookingDate(),
+			$Booking->getBookingTime(),
+			$Booking->getIdusers(),
+			$Booking->getIdstates(),
+		])->execute();
 	}
 
 	public function readDB() {
 
 	}
 
-	public function updateDB() {
-
+	public function updateDB(Booking $Booking) {
+		return DB::call("update_booking",[
+			$Booking->getIdcourses(),
+			$Booking->getBookingDate(),
+			$Booking->getBookingTime(),
+			$Booking->getIdstates(),
+			$Booking->getIdbooking()
+		])->execute();
 	}
 
-	public function deleteDB() {
-
-	}
 
 }
