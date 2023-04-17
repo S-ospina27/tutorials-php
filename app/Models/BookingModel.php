@@ -21,8 +21,8 @@ class BookingModel {
 		])->execute();
 	}
 
-	public function readDB() {
-
+	public function readDB($iduser) {
+		return DB::view("read_booking")->select()->where(DB::equalTo("idusers"),$iduser)->get();
 	}
 
 	public function updateDB(Booking $Booking) {

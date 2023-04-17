@@ -35,6 +35,7 @@ Route::prefix("api",function() {
     Route::prefix("booking",function() {
         Route::post("create",[BookingController::class,"create"]);
         Route::put("update",[BookingController::class,"update"]);
+         Route::get("read/{iduser}",[BookingController::class,"read"]);
 
     });
 

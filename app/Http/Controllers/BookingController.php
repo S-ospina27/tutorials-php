@@ -23,8 +23,8 @@ class BookingController {
 
 	}
 
-	public function read() {
-
+	public function read($iduser) {
+		return $this->bookingModel->readDB($iduser);
 	}
 
 	public function update() {
