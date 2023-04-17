@@ -22,7 +22,7 @@ class CoursesModel {
 	}
 
 	public function readDB() {
-
+		return DB::view("read_courses")->select()->getAll();
 	}
 
 	public function updateDB(Courses $courses) {

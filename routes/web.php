@@ -26,6 +26,7 @@ Route::prefix("api",function() {
     });
 
      Route::prefix("courses",function() {
+        Route::get("read",[CoursesController::class,"read"]);
         Route::post("create",[CoursesController::class,"create"]);
         Route::put("update",[CoursesController::class,"update"]);
 

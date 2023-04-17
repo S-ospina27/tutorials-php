@@ -27,7 +27,7 @@ class CoursesController {
 	}
 
 	public function read() {
-
+		return $this->coursesModel->readDB();
 	}
 
 	public function update() {
