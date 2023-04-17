@@ -16,6 +16,8 @@ Route::get('/', fn() => info("Welcome to index"));
 Route::prefix("api",function() {
     Route::prefix("users",function() {
         Route::post("create",[UsersController::class,"create"]);
+        Route::put("update",[UsersController::class,"update"]);
+
     });
 
 });

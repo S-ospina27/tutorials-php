@@ -24,15 +24,17 @@ class UsersController {
 		return response->success("Usuario registrado correctamente");
 	}
 
-	public function read() {
-
-	}
 
 	public function update() {
+		$responseUpdate = $this->usersModel->updateDB(
+			Users::formFields()
+		);
 
-	}
+		if ($responseUpdate === "database-error") {
+			return response->error("Ocurrio un error al actualizar al usuario");
+		}
 
-	public function delete() {
+		return response->success("Usuario actualizado correctamente");
 
 	}
 

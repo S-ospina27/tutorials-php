@@ -12,7 +12,7 @@ class UsersModel {
 	}
 
 	public function createDB(Users $users) {
-		DB::call("create_users",[
+		return DB::call("create_users",[
 			$users->getUsersName(),
 			$users->getUsersEmail(),
 			$users->getIdroles()
@@ -24,12 +24,12 @@ class UsersModel {
 
 	}
 
-	public function updateDB() {
-
-	}
-
-	public function deleteDB() {
-
+	public function updateDB(Users $users) {
+		return DB::call("create_users",[
+			$users->getUsersName(),
+			$users->getUsersEmail(),
+			$users->getIdusers()
+		])->execute();
 	}
 
 }
