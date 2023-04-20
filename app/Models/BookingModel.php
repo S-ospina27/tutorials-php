@@ -22,7 +22,7 @@ class BookingModel {
 	}
 
 	public function readDB($iduser) {
-		return DB::view("read_booking")->select()->where(DB::equalTo("idusers"),$iduser)->get();
+		return DB::view("read_booking")->select()->where(DB::equalTo("idusers"),$iduser)->getAll();
 	}
 
 	public function updateDB(Booking $Booking) {
@@ -36,4 +36,9 @@ class BookingModel {
 	}
 
 
+	public function deactivateReservationDB($codigoBooking){
+		return DB::call("deactivateReservation",[
+			$codigoBooking
+		])->execute();
+	}
 }

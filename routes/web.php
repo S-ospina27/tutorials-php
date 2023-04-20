@@ -27,6 +27,7 @@ Route::prefix("api",function() {
 
      Route::prefix("courses",function() {
         Route::get("read",[CoursesController::class,"read"]);
+        Route::get("read-teacher/{idusers}",[CoursesController::class,"readTeacher"]);
         Route::post("create",[CoursesController::class,"create"]);
         Route::put("update",[CoursesController::class,"update"]);
 
@@ -35,6 +36,7 @@ Route::prefix("api",function() {
     Route::prefix("booking",function() {
         Route::post("create",[BookingController::class,"create"]);
         Route::put("update",[BookingController::class,"update"]);
+         Route::put("deactivate",[BookingController::class,"deactivateReservationDB"]);
          Route::get("read/{iduser}",[BookingController::class,"read"]);
 
     });

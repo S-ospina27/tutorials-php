@@ -26,15 +26,18 @@ class UsersController {
 
 
 	public function update() {
+
 		$responseUpdate = $this->usersModel->updateDB(
 			Users::formFields()
 		);
+		$result=$this->usersModel->readDB(request->idusers);
+
 
 		if ($responseUpdate === "database-error") {
 			return response->error("Ocurrio un error al actualizar al usuario");
 		}
 
-		return response->success("Usuario actualizado correctamente");
+		return response->success("Usuario actualizado correctamente",$result);
 
 	}
 

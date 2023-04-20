@@ -18,7 +18,7 @@ class LoginController {
         return  response->error("su cuenta no se encuentra registrada");
     }
 
-    return response->success("si te encuentras",$responseAuth);
+    return response->success("ingreso de sesion exitoso",$responseAuth);
 }
 
 }

@@ -38,5 +38,15 @@ class BookingController {
 		return response->success("Reserva  actualizada correctamente");
 	}
 
+	public function deactivateReservationDB(){
+		$responseDeactivateReservation =$this->bookingModel->deactivateReservationDB(request->idbooking);
+
+		if ($responseDeactivateReservation === "database-error") {
+			return response->error("Ocurrio un error al desactivar la reserva  la reserva");
+		}
+
+		return response->success("Reserva  desactivada correctamente");
+
+	}
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Class\Tutorials;
+namespace Database\Class;
 
 class Courses implements \JsonSerializable {
 
@@ -47,16 +47,9 @@ class Courses implements \JsonSerializable {
 			isset(request->idusers) ? request->idusers : null
 		);
 
-
-		if (isset(request->courses_path)) {
-			if (!is_array(request->courses_path)) {
-                $courses->setCoursesPath(request->courses_path);
-            }
-		}
-
-		// $courses->setCoursesPath(
-		// 	isset(request->courses_path) ? request->courses_path : null
-		// );
+		$courses->setCoursesPath(
+			isset(request->courses_path) ? request->courses_path : null
+		);
 
 		return $courses;
 	}
